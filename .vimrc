@@ -2,6 +2,8 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 syntax on
+set number
+set nowrap
 
 if has('gui_running')
     set background=dark
