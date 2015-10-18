@@ -12,7 +12,8 @@ endif
 
 vnoremap . :norm.<CR>
 
-:set softtabstop=4 shiftwidth=4 expandtab
+set softtabstop=4 shiftwidth=4 expandtab
+set scrolloff=3
 
 autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2 expandtab
