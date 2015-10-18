@@ -1,18 +1,24 @@
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
+        url = https://github.com/tpope/vim-pathogen.git
+        ignore = dirty
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+        ignore = dirty
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+        ignore = dirty
 [submodule "bundle/neocomplete.vim"]
 	path = bundle/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim.git
+        ignore = dirty
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+        ignore = dirty
 [submodule "bundle/ShowTrailingWhitespace"]
 	path = bundle/ShowTrailingWhitespace
 	url = https://github.com/vim-scripts/ShowTrailingWhitespace.git
+        ignore = dirty
