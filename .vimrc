@@ -5,10 +5,8 @@ syntax on
 set number
 set nowrap
 
-if has('gui_running')
-    set background=dark
-    colorscheme solarized
-endif
+set background=dark
+colorscheme solarized
 
 vnoremap . :norm.<CR>
 
@@ -33,10 +31,15 @@ endif
 filetype plugin indent on
 set encoding=utf-8
 
+" Auto close { and [ if immediatly followed by <CR>
 inoremap {<CR> {<CR>}<Esc>ko
 inoremap [<CR> [<CR>]<Esc>ko
 
-
+" Window moving
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 map <C-\> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
