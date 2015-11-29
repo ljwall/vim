@@ -10,7 +10,7 @@ colorscheme solarized
 
 vnoremap . :norm.<CR>
 
-set softtabstop=4 shiftwidth=4 expandtab
+set softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 set scrolloff=3
 
 autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
@@ -51,3 +51,7 @@ try
 catch
   " No such file? No problem; just ignore it.
 endtry
+
+
+autocmd FileType php let b:phpfold_group_iftry = 1
+autocmd FileType php let b:phpfold_text_right_lines = 1
