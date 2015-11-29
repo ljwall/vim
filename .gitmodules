@@ -37,3 +37,4 @@
 [submodule "bundle/php-foldexpr"]
 	path = bundle/php-foldexpr
 	url = git://github.com/swekaj/php-foldexpr.vim
+        ignore = dirty
