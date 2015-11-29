@@ -34,3 +34,6 @@
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
         ignore = dirty
+[submodule "bundle/php-foldexpr"]
+	path = bundle/php-foldexpr
+	url = git://github.com/swekaj/php-foldexpr.vim

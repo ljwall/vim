@@ -46,3 +46,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 highlight ShowTrailingWhitespace ctermbg=Red guibg=Red
 
+try
+  source ~/.vim/local.vim
+catch
+  " No such file? No problem; just ignore it.
+endtry
