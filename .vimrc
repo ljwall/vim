@@ -13,9 +13,11 @@ vnoremap . :norm.<CR>
 set softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 set scrolloff=3
 
-autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
-autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2 expandtab
-
+augroup tabsettings
+  autocmd!
+  autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
+  autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2 expandtab
+augroup END
 
 let g:neocomplete#enable_at_startup = 1
 
@@ -43,12 +45,28 @@ nnoremap <C-l> <C-w>l
 
 highlight ShowTrailingWhitespace ctermbg=Red guibg=Red
 
+augroup phpsettings
+  autocmd!
+  autocmd FileType php let b:phpfold_group_iftry = 1
+  autocmd FileType php let b:phpfold_text_right_lines = 1
+augroup END
+
+augroup netrw_mapping
+  autocmd!
+  autocmd BufNewFile,BufRead,filetype * call SetToggleKey()
+augroup END
+
+function! SetToggleKey()
+  if &ft == 'netrw'
+    noremap <buffer> <C-\> :Rexplore<cr>
+  else
+    noremap <buffer> <C-\> :Explore<cr>
+  endif
+endfunction
+
+
 try
   source ~/.vim/local.vim
 catch
   " No such file? No problem; just ignore it.
 endtry
-
-
-autocmd FileType php let b:phpfold_group_iftry = 1
-autocmd FileType php let b:phpfold_text_right_lines = 1
