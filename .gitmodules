@@ -38,3 +38,6 @@
 	path = bundle/php-foldexpr
 	url = git://github.com/swekaj/php-foldexpr.vim
         ignore = dirty
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
