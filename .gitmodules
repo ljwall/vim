@@ -41,3 +41,6 @@
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim
