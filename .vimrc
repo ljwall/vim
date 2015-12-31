@@ -1,5 +1,6 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+execute pathogen#helptags()
 
 syntax on
 set number
@@ -78,4 +79,14 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+set wildignore+=*.so,*.swp,*.zip
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_by_filename=1
+let g:ctrlp_regexp=1
+let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_lazy_update=1
+let g:ctrlp_match_window = 'max:25'
 
