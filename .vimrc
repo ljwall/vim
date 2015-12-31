@@ -64,9 +64,18 @@ function! SetToggleKey()
   endif
 endfunction
 
-
 try
   source ~/.vim/local.vim
 catch
   " No such file? No problem; just ignore it.
 endtry
+
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
