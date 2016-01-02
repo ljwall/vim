@@ -71,6 +71,7 @@ catch
   " No such file? No problem; just ignore it.
 endtry
 
+" Don't use the arrrow keys
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -80,6 +81,7 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+" Settings for CtrlP
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 set wildignore+=*.so,*.swp,*.zip
@@ -90,3 +92,35 @@ let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_lazy_update=1
 let g:ctrlp_match_window = 'max:25'
 
+" Settings for status line
+set statusline=%#DiffAdd#%{fugitive#statusline()}%#DiffText#\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%#DiffChange#%c,%l/%L%#ErrorMsg#%{StatuslineTabWarning()}
+augroup BgHighlight
+    autocmd!
+    autocmd WinLeave * setl statusline=%#LineNr#%{fugitive#statusline()}\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%c,%l/%L%{StatuslineTabWarning()}
+    autocmd WinEnter * setl statusline<
+augroup END
+
+set t_Co=16
+set laststatus=2
+
+"recalculate the tab warning flag when idle and after writing
+autocmd CursorHold,BufWritePost * unlet! b:statusline_tab_warning
+
+"return '[&et]' if &et is set wrong
+"return '[mixed-indenting]' if spaces and tabs are used to indent
+"return an empty string if everything is fine
+function! StatuslineTabWarning()
+    if !exists("b:statusline_tab_warning")
+        let tabs = search('^\t', 'nw') != 0
+        let spaces = search('^ [^\*]', 'nw') != 0
+
+        if tabs && spaces
+            let b:statusline_tab_warning =  '[mixed-indenting]'
+        elseif (spaces && !&et) || (tabs && &et)
+            let b:statusline_tab_warning = '[&et]'
+        else
+            let b:statusline_tab_warning = ''
+        endif
+    endif
+    return b:statusline_tab_warning
+endfunction
