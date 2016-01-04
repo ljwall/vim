@@ -50,6 +50,7 @@ augroup phpsettings
   autocmd!
   autocmd FileType php let b:phpfold_group_iftry = 1
   autocmd FileType php let b:phpfold_text_right_lines = 1
+  autocmd FileType php inoremap <c-d> ->
 augroup END
 
 augroup netrw_mapping
@@ -80,6 +81,11 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+" Use PreserveNoEOL plugin to stop adding an EOL to last line if there is not
+" one there to start with. (Although they should always be there, don't want
+" to create spurious diffs in commits.)
+let g:PreserveNoEOL = 1
 
 " Settings for CtrlP
 let g:ctrlp_max_files=0
