@@ -45,8 +45,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-highlight ShowTrailingWhitespace ctermbg=Red guibg=Red
-
 augroup phpsettings
   autocmd!
   autocmd FileType php let b:phpfold_group_iftry = 1
