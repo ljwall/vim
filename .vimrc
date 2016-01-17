@@ -18,6 +18,7 @@ augroup tabsettings
   autocmd!
   autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
   autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2 expandtab
+  autocmd FileType php setlocal noexpandtab
 augroup END
 
 let g:neocomplete#enable_at_startup = 1
