@@ -39,6 +39,8 @@ set encoding=utf-8
 inoremap {<CR> {<CR>}<Esc>ko
 inoremap [<CR> [<CR>]<Esc>ko
 
+inoremap <c-c> <esc>
+
 " Window moving
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -98,16 +100,17 @@ let g:ctrlp_lazy_update=1
 let g:ctrlp_match_window = 'max:25'
 
 " Settings for status line
-set statusline=%#DiffAdd#%{fugitive#statusline()}%#DiffText#\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%#DiffChange#%c,%l/%L%#ErrorMsg#%{StatuslineTabWarning()}
+set statusline=%#DiffAdd#%{fugitive#statusline()}%#DiffText#\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%#DiffChange#%c,%l/%L%#ErrorMsg#%{StatuslineTabWarning()}%{StatuslineTrailingSpaceWarning()}
 augroup BgHighlight
     autocmd!
-    autocmd WinLeave * setl statusline=%#LineNr#%{fugitive#statusline()}\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%c,%l/%L%{StatuslineTabWarning()}
+    autocmd WinLeave * setl statusline=%#LineNr#%{fugitive#statusline()}\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%c,%l/%L%{StatuslineTabWarning()}%{StatuslineTrailingSpaceWarning()}
     autocmd WinEnter * setl statusline<
 augroup END
 
 set t_Co=16
 set laststatus=2
 
+set updatetime=500
 "recalculate the tab warning flag when idle and after writing
 autocmd CursorHold,BufWritePost * unlet! b:statusline_tab_warning
 
@@ -128,4 +131,20 @@ function! StatuslineTabWarning()
         endif
     endif
     return b:statusline_tab_warning
+endfunction
+
+"recalculate the trailing whitespace warning when idle, and after saving
+autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
+
+"return '[\s\+$]' if trailing white space is detected
+"return '' otherwise
+function! StatuslineTrailingSpaceWarning()
+    if !exists("b:statusline_trailing_space_warning")
+        if search('\s\+$', 'nw') != 0
+            let b:statusline_trailing_space_warning = '[\s\+$]'
+        else
+            let b:statusline_trailing_space_warning = ''
+        endif
+    endif
+    return b:statusline_trailing_space_warning
 endfunction
