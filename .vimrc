@@ -11,15 +11,8 @@ colorscheme solarized
 
 vnoremap . :norm.<CR>
 
-set softtabstop=4 shiftwidth=4 tabstop=4 expandtab
+set softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
 set scrolloff=3
-
-augroup tabsettings
-  autocmd!
-  autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
-  autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2 expandtab
-  autocmd FileType php setlocal noexpandtab
-augroup END
 
 let g:neocomplete#enable_at_startup = 1
 
@@ -52,6 +45,11 @@ augroup phpsettings
   autocmd FileType php let b:phpfold_group_iftry = 1
   autocmd FileType php let b:phpfold_text_right_lines = 1
   autocmd FileType php inoremap <c-d> ->
+augroup END
+
+augroup jssettings
+  autocmd!
+  autocmd FileType javascript setlocal foldmethod=syntax
 augroup END
 
 augroup netrw_mapping
@@ -98,6 +96,17 @@ let g:ctrlp_regexp=1
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_lazy_update=1
 let g:ctrlp_match_window = 'max:25'
+
+" Settings for Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Settings for Gundo
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_width = 60
+let g:gundo_preview_height = 30
 
 " Settings for status line
 set statusline=%#DiffAdd#%{fugitive#statusline()}%#DiffText#\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%#DiffChange#%c,%l/%L%#ErrorMsg#%{StatuslineTabWarning()}%{StatuslineTrailingSpaceWarning()}

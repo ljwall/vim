@@ -18,10 +18,6 @@
 	path = bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
         ignore = dirty
-[submodule "bundle/vdebug"]
-	path = bundle/vdebug
-	url = https://github.com/joonty/vdebug.git
-        ignore = dirty
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
@@ -39,3 +35,12 @@
 [submodule "bundle/PreserveNoEOL"]
 	path = bundle/PreserveNoEOL
 	url = https://github.com/vim-scripts/PreserveNoEOL
+[submodule "/Users/liamwall/.vim/bundle/gundo"]
+	path = /Users/liamwall/.vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
+[submodule "/Users/liamwall/.vim/bundle/vim-javascript"]
+	path = /Users/liamwall/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
