@@ -35,9 +35,6 @@
 [submodule "bundle/PreserveNoEOL"]
 	path = bundle/PreserveNoEOL
 	url = https://github.com/vim-scripts/PreserveNoEOL
-[submodule "/Users/liamwall/.vim/bundle/gundo"]
-	path = /Users/liamwall/.vim/bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
 [submodule "/Users/liamwall/.vim/bundle/vim-javascript"]
 	path = /Users/liamwall/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
