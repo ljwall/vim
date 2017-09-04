@@ -162,3 +162,7 @@ function! StatuslineTrailingSpaceWarning()
     endif
     return b:statusline_trailing_space_warning
 endfunction
+
+" Load any project specific vimrc file, but don't let it do anything crazy
+set exrc
+set secure
