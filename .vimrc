@@ -49,15 +49,15 @@ nnoremap <C-l> <C-w>l
 
 augroup phpsettings
   autocmd!
-  autocmd FileType php let b:phpfold_group_iftry = 1
-  autocmd FileType php let b:phpfold_text_right_lines = 1
+"  autocmd FileType php let b:phpfold_group_iftry = 1
+"  autocmd FileType php let b:phpfold_text_right_lines = 1
   autocmd FileType php inoremap <c-d> ->
 augroup END
 
-augroup jssettings
-  autocmd!
-  autocmd FileType javascript setlocal foldmethod=syntax
-augroup END
+"augroup jssettings
+"  autocmd!
+"  autocmd FileType javascript setlocal foldmethod=syntax
+"augroup END
 
 augroup netrw_mapping
   autocmd!
