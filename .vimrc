@@ -20,8 +20,6 @@ augroup tabsettings
   autocmd FileType haskell setlocal expandtab
 augroup END
 
-let g:neocomplete#enable_at_startup = 1
-
 if has("gui_macvim")
     set guifont=Courier\ New:h14
 endif
