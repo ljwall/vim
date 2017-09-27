@@ -47,6 +47,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Copy to system clipboard with either normal mode <C-c> followby a motion, or
+" a visual selection follwed by <C-c>
+nnoremap <C-c> "+y
+vnoremap <C-c> "+y
+
 augroup phpsettings
   autocmd!
 "  autocmd FileType php let b:phpfold_group_iftry = 1
