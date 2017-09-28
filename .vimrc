@@ -114,6 +114,8 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Use ag (the silver searcher) instacd of ack with the ack plugin
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Settings for status line
 set statusline=%#DiffAdd#%{fugitive#statusline()}%#DiffText#\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%#DiffChange#%c,%l/%L%#ErrorMsg#%{StatuslineTabWarning()}%{StatuslineTrailingSpaceWarning()}
