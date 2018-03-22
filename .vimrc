@@ -113,6 +113,7 @@ let g:syntastic_auto_loc_list = 2
 "let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Use ag (the silver searcher) instacd of ack with the ack plugin
 let g:ackprg = 'ag --nogroup --nocolor --column'
