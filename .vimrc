@@ -5,6 +5,7 @@ execute pathogen#helptags()
 syntax on
 set number
 set nowrap
+set lazyredraw
 
 set background=dark
 colorscheme solarized
@@ -17,7 +18,7 @@ set scrolloff=3
 augroup tabsettings
   autocmd!
   autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
-  autocmd FileType haskell setlocal expandtab
+  autocmd FileType haskell setlocal softtabstop=2 shiftwidth=2 expandtab
 augroup END
 
 if has("gui_macvim")
@@ -53,6 +54,7 @@ vnoremap <C-c> "+y
 augroup phpsettings
   autocmd!
   autocmd FileType php inoremap <c-d> ->
+  autocmd FileType php set keywordprg=php_search
 augroup END
 
 augroup netrw_mapping

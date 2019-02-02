@@ -10,4 +10,3 @@ function! PhpMakeAccessors(...)
 endfunction
 
 command! -nargs=? PhpMakeAccessors call PhpMakeAccessors(<args>)
-
