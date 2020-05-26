@@ -7,7 +7,7 @@ set number
 set nowrap
 set lazyredraw
 
-set background=dark
+set background=light
 colorscheme solarized
 
 vnoremap . :norm.<CR>
@@ -33,6 +33,10 @@ endif
 filetype plugin indent on
 set encoding=utf-8
 
+" Turn of annoying maping that interfers with remapping <c-c> to <esc> and
+" generally seems to make editing SQL painful and slow.
+let g:omni_sql_no_default_maps = 1
+
 " Auto close { and [ if immediatly followed by <CR>
 inoremap {<CR> {<CR>}<Esc>ko
 inoremap [<CR> [<CR>]<Esc>ko
@@ -50,6 +54,10 @@ nnoremap <C-l> <C-w>l
 " a visual selection follwed by <C-c>
 nnoremap <C-c> "+y
 vnoremap <C-c> "+y
+
+" In visual mode `J` and `K` move the visual selection down and up
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
 
 augroup phpsettings
   autocmd!
@@ -109,9 +117,13 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['python', 'mypy']
 
 " Use ag (the silver searcher) instacd of ack with the ack plugin
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Ignore editor config while in fugitive buffers
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " Settings for status line
 set statusline=%#DiffAdd#%{fugitive#statusline()}%#DiffText#\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%=%#DiffChange#%c,%l/%L%#ErrorMsg#%{StatuslineTabWarning()}%{StatuslineTrailingSpaceWarning()}
