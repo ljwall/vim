@@ -7,7 +7,7 @@ set number
 set nowrap
 set lazyredraw
 
-set background=light
+set background=dark
 colorscheme solarized
 
 vnoremap . :norm.<CR>
@@ -18,6 +18,7 @@ set scrolloff=3
 augroup tabsettings
   autocmd!
   autocmd FileType html setlocal softtabstop=2 shiftwidth=2 expandtab
+  autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2 expandtab
   autocmd FileType haskell setlocal softtabstop=2 shiftwidth=2 expandtab
 augroup END
 
